@@ -1,0 +1,2 @@
+document.querySelector(".tree").querySelectorAll("li").forEach(function(e){var t=document.createElement("span");null!==e.firstElementChild&&(t.textContent=e.firstChild.textContent,e.firstChild.replaceWith(t))}),document.querySelectorAll("span").forEach(function(e){e&&e.addEventListener("click",function(){!0===e.nextElementSibling.hidden?e.nextElementSibling.hidden=!1:e.nextElementSibling.hidden=!0})});
+//# sourceMappingURL=index.ca3feccc.js.map
