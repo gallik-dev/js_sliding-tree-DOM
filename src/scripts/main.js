@@ -6,24 +6,18 @@ const headers = tree.querySelectorAll('li');
 headers.forEach((header) => {
   const span = document.createElement('span');
 
-  if (header.firstElementChild !== null) {
-    span.textContent = header.firstChild.textContent;
-    header.firstChild.replaceWith(span);
-  }
+  span.textContent = header.firstChild.textContent;
+  header.firstChild.replaceWith(span);
 });
 
-const newSpan = document.querySelectorAll('span');
+const newSpan = tree.querySelectorAll('span');
 
 newSpan.forEach((span) => {
-  if (!span) {
-    return;
-  }
+  const next = span.nextElementSibling;
 
-  span.addEventListener('click', () => {
-    if (span.nextElementSibling.hidden === true) {
-      span.nextElementSibling.hidden = false;
-    } else {
-      span.nextElementSibling.hidden = true;
-    }
-  });
+  if (next && next.tagName === 'UL') {
+    span.addEventListener('click', () => {
+      next.hidden = !next.hidden;
+    });
+  }
 });
